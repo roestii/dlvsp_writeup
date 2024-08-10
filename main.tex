@@ -1,0 +1,74 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{biblatex}
+\usepackage[a4paper, total={6in, 9in}]{geometry}
+\usepackage[acronym]{glossaries}
+
+\addbibresource{references.bib}
+
+\title{Few shot learning in food recognition with possible applications in smart ovens using JEPA embeddings}
+\author{Louis Betsch}
+% \date{12 September 2023}
+
+\makenoidxglossaries
+
+\newacronym{rmsse}{RMSSE}{Root Mean Squared Scaled Error}
+\newacronym[plural=NNs,firstplural=Neural Networks (NNs)]{nn}{NN}{Neural Network}
+\newacronym{lstm}{LSTM}{Long Short-Term Memory}
+\newacronym[plural=RNNs,firstplural=Recurrent Neural Networks (RNNs)]{rnn}{RNN}{Recurrent Neural Network}
+\newacronym[plural=CNNs,firstplural=Convolutional Neural Networks (CNNs)]{cnn}{CNN}{Convolutional Neural Network}
+\newacronym[plural=SSMs,firstplural=State Space Models (SSMs)]{ssm}{SSM}{State Space Model}
+\newacronym[plural=GBDTs,firstplural=Gradient Boosted Decision Trees (GBDTs)]{gbdt}{GBDT}{Gradient Boosted Decision Tree}
+\newacronym{crisp_dm}{CRISP-DM}{Cross Industry Standard Process for Data Mining}
+\newacronym{hippo}{HiPPO}{High-Order Polynomial Projection Operators}
+
+\begin{document}
+
+\maketitle
+
+\input{abstract}
+\clearpage
+
+\tableofcontents
+\clearpage
+
+% \listoffigures
+% \clearpage
+% 
+% \listoftables
+% \clearpage
+
+\printnoidxglossary[type=\acronymtype]
+\clearpage
+
+\section{Introduction}
+\label{sec:introduction}
+\input{sections/introduction.tex}
+
+\section{Related works}
+\label{sec:related_works}
+\input{sections/related_works.tex}
+
+\section{Method}
+\label{sec:method}
+\input{sections/method.tex}
+
+\section{Experiments}
+\label{sec:experiments}
+\input{sections/experiments.tex}
+
+\section{Results}
+\label{sec:results}
+\input{sections/results.tex}
+
+\section{Conclusion}
+\label{sec:conclusion}
+\input{sections/conclusion.tex}
+
+\clearpage
+
+\printbibliography
+
+\end{document}
