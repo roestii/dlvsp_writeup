@@ -7,6 +7,8 @@
 \usepackage[acronym]{glossaries}
 \usepackage{setspace}
 \usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{subcaption}
 
 \addbibresource{references.bib}
 
@@ -19,16 +21,12 @@
 \makenoidxglossaries
 
 \newacronym{ijepa}{I-JEPA}{Image-based Joint-Emebbding Predictive Architecture}
+\newacronym{tsne}{t-SNE}{t-Distributed Stochastic Neighbor Embedding}
 \newacronym{vit}{ViT}{Vision Transformer}
 \newacronym[plural=NNs,firstplural=Neural Networks (NNs)]{nn}{NN}{Neural Network}
 \newacronym{svm}{SVM}{Support Vector Machine}
 \newacronym{knn}{KNN}{k-nearest neighbor}
-\newacronym[plural=RNNs,firstplural=Recurrent Neural Networks (RNNs)]{rnn}{RNN}{Recurrent Neural Network}
 \newacronym[plural=CNNs,firstplural=Convolutional Neural Networks (CNNs)]{cnn}{CNN}{Convolutional Neural Network}
-\newacronym[plural=SSMs,firstplural=State Space Models (SSMs)]{ssm}{SSM}{State Space Model}
-\newacronym[plural=GBDTs,firstplural=Gradient Boosted Decision Trees (GBDTs)]{gbdt}{GBDT}{Gradient Boosted Decision Tree}
-\newacronym{crisp_dm}{CRISP-DM}{Cross Industry Standard Process for Data Mining}
-\newacronym{hippo}{HiPPO}{High-Order Polynomial Projection Operators}
 
 \begin{document}
 
@@ -38,12 +36,6 @@
 \clearpage
 
 \tableofcontents
-\clearpage
-
-\listoffigures
-\clearpage
-
-\listoftables
 \clearpage
 
 \printnoidxglossary[type=\acronymtype]
@@ -69,9 +61,14 @@
 \label{sec:results}
 \input{sections/results.tex}
 
+\section{Discussion}
+\label{sec:discussion}
+\input{sections/discussion.tex}
+
 \section{Conclusion}
 \label{sec:conclusion}
 \input{sections/conclusion.tex}
+
 
 \clearpage
 

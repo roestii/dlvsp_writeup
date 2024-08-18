@@ -1,0 +1,21 @@
+This work is dedicated to exploring the use of self-supervised representation learning with \gls{ijepa} 
+for few shot classification with possible applications in smart ovens. Two separate architectures, being 
+an \gls{ijepa} and a ResNet-18 embedding model, were compared based on their ability in producing meaningful 
+representations (embeddings). This ability was tested by using a subsequent base learner that is trained on 
+few held-out samples from unseen classes and tested on the remaining samples from those classes. 
+It could be shown that the embeddings resulting from the \gls{ijepa} imposes an improvement over the 
+baseline ResNet-18 backbone. Nonetheless, leaving room for improvement with a 1-shot average accuracy of 19.7\% 
+on 16 held-out test classes using logistic regression as a base learner. Increasing the number of classes 
+in the test dataset lead to decreasing accuracy in prediction. Given the fact that adding classes decreases
+performance and the total accuracy of few shot classification with the used approach, the approach might not yet 
+be suited for use in commercial applications. Nonetheless, it could be shown that these architectures can 
+learn some meaningful representations in food images by separating some food classes very distinctively in the plots shown 
+\ref{sec:validation_results}. Thus, this work can serve as a starting point for exploring
+the use of \gls{ijepa} in image few shot classification. Results from \cite{tian_rethinking_2020} suggest that 
+distilling the ResNet model used in their work improved accuracy significantly. The \gls{ijepa} for instance allows
+for such distilling in the predictor as well. Future work could explore distilling an \gls{ijepa} to improve performance
+further by reusing the predictor part from the previous training cycle. Furthermore, the dimensionality of 
+the default \gls{ijepa} might not be suited for subsequent use in a base learner. In this work, the encodings 
+corresponding to each patch were just concatenated. One might come up with other methods to reduce the dimensionality
+or comprise the result of the encoder in a more meaningful way. For one could use a base learner head for each individual
+patch and use an ensemble of base learners to predict the class.

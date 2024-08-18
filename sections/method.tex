@@ -6,14 +6,19 @@ $D_{val}$ with 15 classes and, $D_{test}$ comprising the remaining 16 classes.
 The few shot classification task can be divided into three phases:
 
 \subsection{Problem}
-The foundation model is trained on the samples in $D_{train}$ either in a supervised or self-supervised manner:
+The embedding model $\theta$ is trained on the samples in $D_{train}$ either in a supervised or self-supervised manner
+minimizing its corresponding loss function $\mathcal{L}$:
 \begin{equation}
-	\theta = L(D_{train}, \phi)
+	\theta^*= \underset{\phi}{argmin}\;{\mathcal{L}\;(D_{train}, \phi)}
 \end{equation}
 
 During validation 1, 5, or 10 samples from each $D_{val}$ class are fed through $\theta$ to train the 
-base learner $L_{base}$ which is used for predicting the classes of the remaining samples in $D_{val}$ 
-to measure performance.
+base learner $L_{base}$ which is used to predict the classes of the remaining samples in $D_{val}$ 
+to measure performance. Thus, the objective of the base learner can be formulated as:
+
+\begin{equation}
+	\mathcal{B}^* = \underset{\mathcal{B}}{argmin}\;{\mathcal{L}\;(\mathcal{B}, D_{val}, \theta^*)}
+\end{equation}
 
 \subsection{Training and validating the embedding model}
 As a baseline a ResNet-18 is trained on $D_{train}$ through classification using 
@@ -24,8 +29,16 @@ measured on the prediction of the base learner for the remaining embeddings of t
 
 In case of the \gls{ijepa} foundation model class labels from $D_{train}$ are dropped as they are not required. 
 Encoder, target encoder, and predictor are trained on the samples of $D_{train}$. The encoder part of the resulting 
-model is used to produce the embeddings for the samples of $D_{val}$. 
-The training of the base learner for validation is the same as above.
+model is used to produce the embeddings for the samples of $D_{val}$. Due to the fact that the \gls{ijepa} encoder relies 
+on a \gls{vit} the image is processed into patches with a predefined patch size when feeding it through the encoder 
+\cite{dosovitskiy_image_2021}. Each patch corresponds to a region in an image and is further encoded by a positional 
+encoding to preserve the location of each individual patch \cite{dosovitskiy_image_2021}. Each patch of an image 
+is processed by the encoder in parallel. Thus, the output size is given by the number of patches and the encoding 
+of each patch. Subsequently, the loss to be minimized by the \gls{ijepa} is the patch-level $L^2$ distance of the 
+embeddings. The desired embedding is computed by concatenating all patch encodings resulting in a single one-dimensional 
+vector. The training of the base learner for validation is the same as for the baseline model. 
 
-Several base learners are evaluated on top of both embedding models using the accuracy on the $D_{val}$. The best
-model configuration is evaluated on $D_{test}$.
+To speed up training and inference of the base learner all embeddings of $D_{val}$ and $D_{test}$ were precomputed.
+Several base learners are evaluated on top of both embedding models using the accuracy on the $D_{val}$. 
+The base learner is trained on 1, 5, and 10 held-out samples and average accuracy over a 10-fold cross-validation is 
+used as a metric to measure model performance. The best model configuration is evaluated on $D_{test}$.

@@ -25,8 +25,10 @@ explores a self-supervised learning method to learn meaningful representations o
 be used for training a base learner (e.g. logistic regression classifier) to predict the test classes.
 
 The self-supervised learning method \gls{ijepa} is an architecture that consists of an encoder, a predictor, and a 
-target encoder \cite{assran_self-supervised_2023}. The basic idea is to feed an image through the target encoder,
-a masked version of that image through the encoder, and predict the embedding from the original image based 
+target encoder \cite{assran_self-supervised_2023}. Instead of relying on \glspl{cnn}, the \gls{ijepa} uses 
+the \gls{vit} \cite{dosovitskiy_image_2021} as its basic building block \cite{assran_self-supervised_2023}. 
+The underlying idea is to feed an image through the target encoder,
+a masked version of that same image through the encoder, and predict the embedding from the original image based 
 on the embedding of the masked image using the predictor \cite{assran_self-supervised_2023}. They show that 
 by predicting in representation space rather than in the original image space, \gls{ijepa} is capable of 
 producing semantic representations while using less training hours than other methods \cite{assran_self-supervised_2023}.
