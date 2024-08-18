@@ -26,5 +26,10 @@ the embedding model might be crucial to yield even further improvements.
 
 This work showed promising results in the use of self-supervised methods for learning representations in food images, 
 improving over a baseline ResNet-18 model trained by classification. Further research is needed to conclude whether this
-approach can be superior to previous works using supervised methods. One has to evaluate for himself whether the results 
-shown in this work are sufficient for their particular use case.
+approach can be superior to previous works using supervised methods. 
+
+Considering the limited applicability of the Food-101 dataset to the setting of a smart oven, due to high variance 
+in the Food-101 dataset's samples which would be considerably lower in a controlled environment like a smart oven, 
+the performance might improve when fine-tuning a model on low-variance data from the same environment and might 
+lead to more distinct and meaningful representations. Further research is needed to exactly evaluate the usefulness
+of this approach in a controlled environment such as a smart oven.

@@ -1,20 +1,20 @@
 \subsection{Dataset}
 As a dataset the Food-101 dataset \cite{fleet_food-101_2014} is used. It consists of 101 food classes where 
-each class comprises 1000 labeled images. The dataset is split into three parts: $D_{train}$ with 70 classes,
+each class comprises 1000 labeled real-world images. The dataset is split into three parts: $D_{train}$ with 70 classes,
 $D_{val}$ with 15 classes and, $D_{test}$ comprising the remaining 16 classes.
-
-The few shot classification task can be divided into three phases:
 
 \subsection{Problem}
 The embedding model $\theta$ is trained on the samples in $D_{train}$ either in a supervised or self-supervised manner
-minimizing its corresponding loss function $\mathcal{L}$:
+minimizing its corresponding loss function $\mathcal{L}$. $\phi$ being the embedding model's parameters:
+
 \begin{equation}
 	\theta^*= \underset{\phi}{argmin}\;{\mathcal{L}\;(D_{train}, \phi)}
 \end{equation}
 
-During validation 1, 5, or 10 samples from each $D_{val}$ class are fed through $\theta$ to train the 
+During validation 1, 5, or 10 samples from each $D_{val}$ class are processed by $\theta$ to train the 
 base learner $L_{base}$ which is used to predict the classes of the remaining samples in $D_{val}$ 
-to measure performance. Thus, the objective of the base learner can be formulated as:
+to measure the average accuracy over a 10-fold cross-validation. 
+Thus, the objective of the base learner can be formulated as:
 
 \begin{equation}
 	\mathcal{B}^* = \underset{\mathcal{B}}{argmin}\;{\mathcal{L}\;(\mathcal{B}, D_{val}, \theta^*)}
@@ -23,7 +23,7 @@ to measure performance. Thus, the objective of the base learner can be formulate
 \subsection{Training and validating the embedding model}
 As a baseline a ResNet-18 is trained on $D_{train}$ through classification using 
 categorical cross-entropy. For validation the classification 
-head is being dropped, and a base learner is trained on a few held-out embeddings from $D_{val}$. 
+head is dropped, and a base learner is trained on a few held-out embeddings from $D_{val}$. 
 For regularization the $L^2$-norm is used. The accuracy is 
 measured on the prediction of the base learner for the remaining embeddings of the samples in $D_{val}$.
 

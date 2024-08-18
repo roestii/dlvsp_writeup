@@ -10,14 +10,14 @@
 
 Metric learning methods have the advantage of not having to learn new parameters when new classes are added 
 and thus overcome the problem of overfitting \cite{li_deep_2023}. \citeauthor{tian_rethinking_2020} use such a metric learning method by training a classification model on the labeled training classes, 
-dropping the classification head, and replacing it by a new head trained at test time on the test classes \cite{tian_rethinking_2020}. In particular, they used logistic regression for the classification head \cite{tian_rethinking_2020}. 
+dropping the classification head, and replacing it by a new head trained at test time on the test classes \cite{tian_rethinking_2020}. In particular, they used logistic regression for the classifying the test classes \cite{tian_rethinking_2020}. 
 \citeauthor{dhillon_baseline_2020} have a similar approach using embedding regularization and cosine similarity 
 for classification on the test classes \cite{dhillon_baseline_2020}.
 
 While \cite{tian_rethinking_2020, dhillon_baseline_2020} use one embedding model to extract meaningful feature maps, 
 \cite{jiang_few-shot_2020} introduces multi-view representation learning for food classification specifically.
 \citeauthor{jiang_few-shot_2020} utilize multiple convolutional networks that predict several different aspects 
-of the given food image, such as food category and ingredients and subsequently fuse the individual feature maps to 
+of the given food image, such as food category and ingredients and, subsequently fuse the individual feature maps to 
 make a final class prediction.
 
 While all the methods above use supervised learning for training the initial foundation model, this work 

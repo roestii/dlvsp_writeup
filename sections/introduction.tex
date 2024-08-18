@@ -2,16 +2,16 @@ In recent years, deep learning has gained a lot of attention in image processing
 \cite{he_deep_2015, krizhevsky_imagenet_2012, tan_efficientnet_2020}. These architectures rely on large labeled datasets. 
 Thus, this success can 
 partially be attributed to the availability of large public and proprietary datasets like ImageNet \cite{deng_imagenet_2009}. 
-In domains where labeled data is sparse architectures with high complexity such as the ones cited above 
-remain hard to train \cite{brigato_close_2021}. Therefore, the domain of few shot image classification - 
-usually between 1 and 5 samples per class - poses some special challenges and raises the need for other 
+In domains where labeled data is sparse, architectures with high complexity such as the ones cited above 
+remain hard to train \cite{brigato_close_2021}. Therefore, the domain of few shot image classification which
+usually uses between 1 and 5 samples per class poses some special challenges and raises the need for other 
 approaches. In particular, this work addresses the problem of classifying food images given few held-out 
 samples per class for applications such as in smart ovens. A user of an oven may want to save settings for 
 a given food, the oven saves pictures of that given food inside the oven, and the next time 
 the user puts in the same kind of meal, the oven is able to recognize the meal based on the pictures taken 
 prior and suggests the saved settings to the user automatically. While there are several challenges to implement 
 this use case end-to-end, this work is limited to the classification of meals given a few held-out samples 
-per class (meal category).
+per class.
 
 In contrast to others, this work explores the uses of a novel self-supervised learning architecture called 
 \gls{ijepa} \cite{assran_self-supervised_2023} proposed by \citeauthor{assran_self-supervised_2023} 

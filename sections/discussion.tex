@@ -1,8 +1,11 @@
-Results shown in \cite{tian_rethinking_2020}, even for the baseline (without distilling a ResNet-18) suggests accuracy 
+Results shown in \cite{tian_rethinking_2020}, even for the baseline (without distilling a ResNet-18) suggest accuracy 
 scores on CIFAR around 71.5\% and 5-shot accuracy of 86\%. These results seem far more promising than the 
 ones encountered in this work. Other works that used the Food-101 dataset directly like \cite{jiang_few-shot_2020} achieved
-one shot accuracy scores of 55\% with multi-view representation learning. 
-But it has to be noted that tests were only performed on five randomly sampled classes \cite{jiang_few-shot_2020}
+one shot accuracy scores of 55\% with multi-view representation learning. This might suggest that the Food-101 
+dataset is relatively hard for few show classification. It can be attributed to the use of real-world examples in the 
+dataset that suffer high variance.
+Furthermore, it has to be noted that the tests in \cite{jiang_few-shof_2020} were only performed on 
+five randomly sampled classes \cite{jiang_few-shot_2020}
 instead of the 15 or 16 classes that were used in this work making the comparison of the findings hard.
 Further work is needed to fully conclude, whether the effectiveness of the self-supervised embedding model
 and base learner approach can compete with others in few shot classification of food images.
