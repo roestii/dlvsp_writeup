@@ -17,5 +17,14 @@ for such distilling in the predictor as well. Future work could explore distilli
 further by reusing the predictor part from the previous training cycle. Furthermore, the dimensionality of 
 the default \gls{ijepa} might not be suited for subsequent use in a base learner. In this work, the encodings 
 corresponding to each patch were just concatenated. One might come up with other methods to reduce the dimensionality
-or comprise the result of the encoder in a more meaningful way. For one could use a base learner head for each individual
-patch and use an ensemble of base learners to predict the class.
+or comprise the result of the encoder in a more meaningful way. For instance, one could use a base learner 
+head for each individual patch and use an ensemble of base learners to predict the class. 
+Further improvements in pretraining the model and in the dataset used can lead to additional improvements. As the 
+\gls{ijepa} can be trained in a self-supervised manner, the training dataset does not have to be labeled enabling 
+the use of unlabeled pictures for example scraped from the internet. Improving the dataset quality used for fine-tuning 
+the embedding model might be crucial to yield even further improvements.
+
+This work showed promising results in the use of self-supervised methods for learning representations in food images, 
+improving over a baseline ResNet-18 model trained by classification. Further research is needed to conclude whether this
+approach can be superior to previous works using supervised methods. One has to evaluate for himself whether the results 
+shown in this work are sufficient for their particular use case.
