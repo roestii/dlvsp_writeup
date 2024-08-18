@@ -1,12 +1,32 @@
-validation
-embedding model, base learner, 1 shot, 5 shot, 10 shot
-base, logistic_regression, 0.241, 0.422, 0.508
-base, k_nearest_neighbor, 0.221, 0.322, 0.418
-base, svm, 0.221, 0.404, 0.504
-ijepa, logistic_regression, 0.262, 0.453, 0.531
-ijepa, k_nearest_neighbor, 0.238, 0.328, 0.412
-ijepa, svm, 0.238, 0.425, 0.51
+\begin{table}[h!]
+\centering
+\begin{tabular}{ c c c c c }
+	\hline
+	\textbf{Embedding model} & \textbf{Base learner} & \textbf{1-shot} & \textbf{5-shot} & \textbf{10-shot} \\
+	\hline
+	ResNet-18 & Logistic regression & 0.241 & 0.422 & 0.508 \\
+	ResNet-18 & \gls{knn} & 0.221 & 0.322 & 0.418 \\
+	ResNet-18 & \gls{svm} & 0.221 & 0.404 & 0.504 \\
+	\hline
+	\gls{ijepa} & Logistic regression & \underline{\textbf{0.262}} & \underline{\textbf{0.453}} & \underline{\textbf{0.531}} \\
+	\gls{ijepa} & \gls{knn} & 0.238 & 0.328 & 0.412 \\
+	\gls{ijepa} & \gls{svm} & 0.238 & 0.425 & 0.51 \\
+	\hline
+\end{tabular}
+\caption{Experiments performed on the validation dataset.}
+\label{table:validation}
+\end{table}
 
-test 
-embedding model, base learner, 1 shot, 5 shot, 10 shot
-ijepa, logistic_regression, 0.1973125, 0.3516875, 0.4335
+\begin{table}[h!]
+\centering
+\begin{tabular}{ c c c c c }
+	\hline
+	\textbf{Embedding model} & \textbf{Base learner} & \textbf{1-shot} & \textbf{5-shot} & \textbf{10-shot} \\
+	\hline
+	\gls{ijepa} & Logistic regression & 0.197 & 0.352 & 0.434 \\
+	\hline
+\end{tabular}
+\caption{Performance of the best model configuration on the test dataset.}
+\label{table:test}
+\end{table}
+

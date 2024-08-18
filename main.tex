@@ -5,18 +5,24 @@
 \usepackage{biblatex}
 \usepackage[a4paper, total={6in, 9in}]{geometry}
 \usepackage[acronym]{glossaries}
+\usepackage{setspace}
+\usepackage{hyperref}
 
 \addbibresource{references.bib}
 
-\title{Few shot learning in food recognition with possible applications in smart ovens using JEPA embeddings}
+\setstretch{1.5}
+
+\title{Few shot learning in food images with applications in smart ovens using joint embeddings}
 \author{Louis Betsch}
 % \date{12 September 2023}
 
 \makenoidxglossaries
 
-\newacronym{rmsse}{RMSSE}{Root Mean Squared Scaled Error}
+\newacronym{ijepa}{I-JEPA}{Image-based Joint-Emebbding Predictive Architecture}
+\newacronym{vit}{ViT}{Vision Transformer}
 \newacronym[plural=NNs,firstplural=Neural Networks (NNs)]{nn}{NN}{Neural Network}
-\newacronym{lstm}{LSTM}{Long Short-Term Memory}
+\newacronym{svm}{SVM}{Support Vector Machine}
+\newacronym{knn}{KNN}{k-nearest neighbor}
 \newacronym[plural=RNNs,firstplural=Recurrent Neural Networks (RNNs)]{rnn}{RNN}{Recurrent Neural Network}
 \newacronym[plural=CNNs,firstplural=Convolutional Neural Networks (CNNs)]{cnn}{CNN}{Convolutional Neural Network}
 \newacronym[plural=SSMs,firstplural=State Space Models (SSMs)]{ssm}{SSM}{State Space Model}
@@ -34,11 +40,11 @@
 \tableofcontents
 \clearpage
 
-% \listoffigures
-% \clearpage
-% 
-% \listoftables
-% \clearpage
+\listoffigures
+\clearpage
+
+\listoftables
+\clearpage
 
 \printnoidxglossary[type=\acronymtype]
 \clearpage

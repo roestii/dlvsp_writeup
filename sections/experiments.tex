@@ -1,0 +1,18 @@
+\subsection{Setup}
+The images of the Food-101 dataset are cropped to a size of 224x224.
+For the baseline model, a ResNet-18 pretrained on the ImageNet1k dataset with a one layer classification head 
+is fine-tuned for 15 epochs on the 
+$D_{train}$ dataset comprising 70 classes with 70000 images using the Adam optimizer \cite{kingma_adam_2017} with a
+learning rate of 0.001 and cross-entropy as the loss function.
+
+The \gls{ijepa} model uses the standard implementation from \url{https://github.com/facebookresearch/ijepa}. The model 
+is initialized with pretrained weights from ImageNet1k as well and fine-tuned on the food-101 $D_{train}$ dataset 
+for 10 epochs on an A100 GPU. It uses a \gls{vit} as its building block with a patch size of 14.
+
+\subsection{Base learners}
+Three different base learners are used on top of the embedding models: Logistic Regression, \gls{knn}, \gls{svm}.
+Each of the individual base learner is evaluated on each embedding model. Before base learner training the embeddings 
+from the individual foundation models are regularized using the $L^2$-norm. The $k$ hyperparameter in the \gls{knn}	
+base learner is chosen based on the amount of samples per class included in the training phase of validation. 
+All base learners use the default implementation and settings from \cite{scikit-learn}.
+

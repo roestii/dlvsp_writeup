@@ -1,0 +1,31 @@
+\subsection{Dataset}
+As a dataset the Food-101 dataset \cite{fleet_food-101_2014} is used. It consists of 101 food classes where 
+each class comprises 1000 labeled images. The dataset is split into three parts: $D_{train}$ with 70 classes,
+$D_{val}$ with 15 classes and, $D_{test}$ comprising the remaining 16 classes.
+
+The few shot classification task can be divided into three phases:
+
+\subsection{Problem}
+The foundation model is trained on the samples in $D_{train}$ either in a supervised or self-supervised manner:
+\begin{equation}
+	\theta = L(D_{train}, \phi)
+\end{equation}
+
+During validation 1, 5, or 10 samples from each $D_{val}$ class are fed through $\theta$ to train the 
+base learner $L_{base}$ which is used for predicting the classes of the remaining samples in $D_{val}$ 
+to measure performance.
+
+\subsection{Training and validating the embedding model}
+As a baseline a ResNet-18 is trained on $D_{train}$ through classification using 
+categorical cross-entropy. For validation the classification 
+head is being dropped, and a base learner is trained on a few held-out embeddings from $D_{val}$. 
+For regularization the $L^2$-norm is used. The accuracy is 
+measured on the prediction of the base learner for the remaining embeddings of the samples in $D_{val}$.
+
+In case of the \gls{ijepa} foundation model class labels from $D_{train}$ are dropped as they are not required. 
+Encoder, target encoder, and predictor are trained on the samples of $D_{train}$. The encoder part of the resulting 
+model is used to produce the embeddings for the samples of $D_{val}$. 
+The training of the base learner for validation is the same as above.
+
+Several base learners are evaluated on top of both embedding models using the accuracy on the $D_{val}$. The best
+model configuration is evaluated on $D_{test}$.
