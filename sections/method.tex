@@ -1,6 +1,11 @@
 \subsection{Dataset}
 As a dataset the Food-101 dataset \cite{fleet_food-101_2014} is used. It consists of 101 food classes where 
-each class comprises 1000 labeled real-world images. The dataset is split into three parts: $D_{train}$ with 70 classes,
+each class comprises 1000 labeled real-world images. These real-world images were not taken in a standardized 
+way and suffer high variance. This will most likely affect the performance of the few show classification 
+significantly. When training a model for a specific use case, like the one in smart ovens which has a stable environment, one 
+might consider using a dataset that is closer to the images queried later during inference. 
+Nonetheless, the dataset suits well as a proof of concept testing the robustness of an architecture as well.
+The dataset is split into three parts: $D_{train}$ with 70 classes,
 $D_{val}$ with 15 classes and, $D_{test}$ comprising the remaining 16 classes.
 
 \subsection{Problem}
