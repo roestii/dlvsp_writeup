@@ -11,7 +11,7 @@ for 10 epochs on an A100 GPU. It uses a \gls{vit} as its building block with a p
 
 \subsection{Base learners}
 Three different base learners are used on top of the embedding models: Logistic Regression, \gls{knn}, \gls{svm}.
-Each of the individual base learner is evaluated on each embedding model. Before base learner training the embeddings 
+Each of the individual base learners is evaluated for each embedding model. Prior to the training of the base learner, the embeddings 
 from the individual foundation models are regularized using the $L^2$-norm. The $k$ hyperparameter in the \gls{knn}	
 base learner is chosen based on the amount of samples per class included in the training phase of validation. 
 All base learners use the default implementation and settings from \cite{scikit-learn}.
